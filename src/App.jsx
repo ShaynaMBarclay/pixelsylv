@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Character from './components/Character';
 import StatusBar  from './components/StatusBar';
 import ActionButtons from './components/ActionButtons';
@@ -19,19 +19,30 @@ const App = () => {
   };
 
   const feed = () => {
-    setHunger(hunger + 10);
+    setHunger((prev) => Math.min(prev + 10, 100));
     updateMood();
   };
 
   const play = () => {
-    setHappiness(happiness + 10);
+    setHappiness((prev) => Math.min(prev + 10, 100))
     updateMood();
   };
 
   const clean = () => {
-    setCleanliness(cleanliness + 10);
+    setCleanliness((prev) => Math.min(prev + 10, 100))
     updateMood();
   };
+
+  useEffect(() => {
+    const interval = setInterval(() =>{
+      setHunger((prev) => Math.max(prev - 5, 0));
+      setHappiness(( prev) => Math.max(prev - 3, 0));
+      setCleanliness((prev) => Math.max(prev - 4, 0));
+      updateMood();
+    }, 40000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="app">
