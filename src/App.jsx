@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState } from 'react';
+import Character from './components/Character';
+import StatusBar  from './components/StatusBar';
+import ActionButtons from './components/ActionButtons';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [hunger, setHunger] = useState(50);
+  const [happiness, setHappiness] = useState(50);
+  const [cleanliness, setCleanliness] = useState(50);
+
+  const [mood, setMood] = useState('happy');
+
+  const updateMood = () => {
+    if (hunger < 30) setMood('hungry');
+    else if (cleanliness < 30) setMood('dirty');
+    else if (happiness < 30) setMood('tired');
+    else setMood('happy');
+  };
+
+  const feed = () => {
+    setHunger(hunger + 10);
+    updateMood();
+  };
+
+  const play = () => {
+    setHappiness(happiness + 10);
+    updateMood();
+  };
+
+  const clean = () => {
+    setCleanliness(cleanliness + 10);
+    updateMood();
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="app">
+      <h1>Pixel Sylv</h1>
+      <Character mood={mood} />
+      <StatusBar hunger={hunger} happiness={happiness} cleanliness={cleanliness} />
+      <ActionButtons onFeed={feed} onPlay={play} onClean={clean} />
+    </div>
+  );
+};
 
 export default App
