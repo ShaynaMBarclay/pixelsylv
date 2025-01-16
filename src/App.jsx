@@ -35,9 +35,9 @@ const App = () => {
 
   useEffect(() => {
     const interval = setInterval(() =>{
-      setHunger((prev) => Math.max(prev - 5, 0));
-      setHappiness(( prev) => Math.max(prev - 3, 0));
-      setCleanliness((prev) => Math.max(prev - 4, 0));
+      setHunger((prev) => Math.max(prev - 10, 0));
+      setHappiness(( prev) => Math.max(prev - 15, 0));
+      setCleanliness((prev) => Math.max(prev - 5, 0));
       updateMood();
     }, 40000);
 
