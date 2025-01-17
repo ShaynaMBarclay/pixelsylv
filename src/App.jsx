@@ -11,42 +11,48 @@ const App = () => {
 
   const [mood, setMood] = useState('happy');
 
-  const updateMood = () => {
-    if (hunger < 30) setMood('hungry');
-    else if (cleanliness < 30) setMood('dirty');
-    else if (happiness < 30) setMood('tired');
-    else setMood('happy');
-  };
+  useEffect(() => {
+    const determineMood = () => {
+  if (happiness < 30) {
+    setMood('tired');
+  } else if (cleanliness < 50) {
+    setMood('dirty');
+  } else if (hunger < 30) {
+    setMood('hungry');
+  } else {
+    setMood('happy');
+  }
+};
 
+    determineMood();
+  }, [hunger, happiness, cleanliness]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHunger((prev) => Math.max(prev - 10, 0));
+      setHappiness((prev) => Math.max(prev - 15, 0));
+      setCleanliness((prev) => Math.max(prev - 5, 0));
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+  
   const feed = () => {
     setHunger((prev) => Math.min(prev + 10, 100));
-    updateMood();
   };
 
   const play = () => {
     setHappiness((prev) => Math.min(prev + 10, 100))
-    updateMood();
   };
 
   const clean = () => {
     setCleanliness((prev) => Math.min(prev + 10, 100))
-    updateMood();
   };
 
-  useEffect(() => {
-    const interval = setInterval(() =>{
-      setHunger((prev) => Math.max(prev - 10, 0));
-      setHappiness(( prev) => Math.max(prev - 15, 0));
-      setCleanliness((prev) => Math.max(prev - 5, 0));
-      updateMood();
-    }, 40000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="app">
-      <h1>Pixel Sylv</h1>
+      <h1>Pixel Oliver</h1>
       <Character mood={mood} />
       <StatusBar hunger={hunger} happiness={happiness} cleanliness={cleanliness} />
       <ActionButtons onFeed={feed} onPlay={play} onClean={clean} />

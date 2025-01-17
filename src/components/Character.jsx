@@ -1,18 +1,28 @@
 import React from 'react';
+import happyGif from '../images/happy.gif';
+import tiredGif from '../images/sleepy.gif';
+import dirtyGif from '../images/stinky.gif';
 
 const Character = ({ mood }) => {
-    const moodEmojis = {
-    happy: '😊',
-    hungry: '😋',
-    tired: '😴',
-    dirty: '😷',
-    };
+  
+  const moodImages = {
+    happy: happyGif,
+    tired: tiredGif,
+    dirty: dirtyGif,
+  };
 
-    return (
-        <div className="character">
-            <span style={{ fontSize: '5rem' }}>{moodEmojis[mood]}</span>
-        </div>
-    );
+  const imageSrc = moodImages[mood] || happyGif;
+
+  return (
+    <div className="character">
+      <img
+        src={imageSrc}
+        alt={mood}
+        className="character-image"
+      />
+      <p>Current Mood: {mood.charAt(0).toUpperCase() + mood.slice(1)}</p>
+    </div>
+  );
 };
 
 export default Character;
