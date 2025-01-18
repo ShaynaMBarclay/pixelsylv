@@ -13,11 +13,11 @@ const App = () => {
 
   useEffect(() => {
     const determineMood = () => {
-  if (happiness < 30) {
+  if (happiness < 40) {
     setMood('tired');
   } else if (cleanliness < 50) {
     setMood('dirty');
-  } else if (hunger < 30) {
+  } else if (hunger < 20) {
     setMood('hungry');
   } else {
     setMood('happy');
@@ -28,21 +28,35 @@ const App = () => {
   }, [hunger, happiness, cleanliness]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setHunger((prev) => Math.max(prev - 10, 0));
-      setHappiness((prev) => Math.max(prev - 15, 0));
-      setCleanliness((prev) => Math.max(prev - 5, 0));
-    }, 4000);
+    const hungerInterval = setInterval(() => {
+      setHunger((prev) => Math.max(prev - 5, 0));
+    }, 25000);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(hungerInterval);
+  }, []);
+
+  useEffect(() => {
+    const happinessInterval = setInterval(() => {
+      setHappiness((prev) => Math.max(prev - 15, 0));
+    }, 10000);
+
+    return () => clearInterval(happinessInterval);
+  }, []);
+
+  useEffect(() => {
+    const cleanlinessInterval = setInterval(() => {
+      setCleanliness((prev) => Math.max(prev - 10, 0));
+    }, 20000);
+
+    return () => clearInterval(cleanlinessInterval);
   }, []);
   
   const feed = () => {
-    setHunger((prev) => Math.min(prev + 10, 100));
+    setHunger((prev) => Math.min(prev + 20, 100));
   };
 
   const play = () => {
-    setHappiness((prev) => Math.min(prev + 10, 100))
+    setHappiness((prev) => Math.min(prev + 20, 100))
   };
 
   const clean = () => {

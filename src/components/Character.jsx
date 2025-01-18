@@ -2,6 +2,7 @@ import React from 'react';
 import happyGif from '../images/happy.gif';
 import tiredGif from '../images/sleepy.gif';
 import dirtyGif from '../images/stinky.gif';
+import hungryGif from '../images/hungry.gif';
 
 const Character = ({ mood }) => {
   
@@ -9,6 +10,7 @@ const Character = ({ mood }) => {
     happy: happyGif,
     tired: tiredGif,
     dirty: dirtyGif,
+    hungry: hungryGif,
   };
 
   const imageSrc = moodImages[mood] || happyGif;
@@ -20,7 +22,7 @@ const Character = ({ mood }) => {
         alt={mood}
         className="character-image"
       />
-      <p>Current Mood: {mood.charAt(0).toUpperCase() + mood.slice(1)}</p>
+      <p>Oliver is {mood.charAt(0) + mood.slice(1)}!</p>
     </div>
   );
 };
