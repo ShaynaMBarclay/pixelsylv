@@ -66,7 +66,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>Pixel Oliver</h1>
+      <h1 className="sixtyfour-convergence">Pixel Oliver</h1>
       <Character mood={mood} />
       <StatusBar hunger={hunger} happiness={happiness} cleanliness={cleanliness} />
       <ActionButtons onFeed={feed} onPlay={play} onClean={clean} />

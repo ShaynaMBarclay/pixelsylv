@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sixtyfour+Convergence&display=swap');
+
+.sixtyfour-convergence {
+  font-family: "Sixtyfour Convergence", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 3.5rem;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0,
+    "XELA" 0,
+    "YELA" 0;
+}
+
 body {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -18,12 +32,7 @@ body {
   margin: 1rem 0;
 }
 
-.action-buttons button {
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-}
+
 
 .character-image {
   width: 250px;
@@ -35,4 +44,54 @@ body {
 .character p {
   font-size: 1.2rem;
   font-weight: bold;
+}
+.action-buttons {
+  display: flex;
+  justify-content: center; 
+  gap: 2.7rem; 
+}
+
+.feed-btn {
+ width: 2.8rem;
+ height: 2.8rem;
+ background: none;
+ border: none;
+ cursor: pointer;
+ padding: 0;
+}
+
+.feed-icon {
+  width: 100%; 
+  height: 100%;
+  object-fit: contain;
+}
+
+.hand-btn {
+  width: 3rem;
+  height: 3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hand-icon {
+  width: 100%; 
+  height: 100%;
+  object-fit: contain;
+}
+
+.bathe-btn {
+  width: 3rem;
+  height: 3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.bathe-icon {
+  width: 100%; 
+  height: 100%;
+  object-fit: contain;
 }
