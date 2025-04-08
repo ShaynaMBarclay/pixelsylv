@@ -3,8 +3,11 @@ import happyGif from '../images/happy.gif';
 import tiredGif from '../images/sleepy.gif';
 import dirtyGif from '../images/stinky.gif';
 import hungryGif from '../images/hungry.gif';
+import playingGif from '../images/playful.gif';
+import eatingGif from '../images/feeding.gif';
 
-const Character = ({ mood }) => {
+
+const Character = ({ mood, tempAction }) => {
   
   const moodImages = {
     happy: happyGif,
@@ -13,7 +16,12 @@ const Character = ({ mood }) => {
     hungry: hungryGif,
   };
 
-  const imageSrc = moodImages[mood] || happyGif;
+  const actionImages = {
+    playful: playingGif,
+    eating: eatingGif,
+  };
+
+  const imageSrc =  tempAction ? actionImages[tempAction] : moodImages[mood] || happyGif;
 
   return (
     <div className="character">
@@ -22,7 +30,7 @@ const Character = ({ mood }) => {
         alt={mood}
         className="character-image"
       />
-      <p>Oliver is {mood.charAt(0) + mood.slice(1)}!</p>
+      <p>Oliver is {tempAction ? tempAction : mood.charAt(0).toUpperCase() + mood.slice(1)}!</p>
     </div>
   );
 };

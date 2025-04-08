@@ -8,6 +8,7 @@ const App = () => {
   const [hunger, setHunger] = useState(50);
   const [happiness, setHappiness] = useState(50);
   const [cleanliness, setCleanliness] = useState(50);
+  const [tempAction, setTempAction] = useState(null);
 
   const [mood, setMood] = useState('happy');
 
@@ -53,23 +54,28 @@ const App = () => {
   
   const feed = () => {
     setHunger((prev) => Math.min(prev + 20, 100));
+    setTempAction('eating');
+    setTimeout(() => setTempAction(null), 2000);
   };
 
   const play = () => {
-    setHappiness((prev) => Math.min(prev + 20, 100))
+    setHappiness((prev) => Math.min(prev + 20, 100));
+    setTempAction('playful');
+    setTimeout(() => setTempAction(null), 2000);
   };
 
   const clean = () => {
-    setCleanliness((prev) => Math.min(prev + 10, 100))
+    setCleanliness((prev) => Math.min(prev + 10, 100));
   };
 
 
   return (
     <div className="app">
       <h1 className="sixtyfour-convergence">Pixel Oliver</h1>
-      <Character mood={mood} />
-      <StatusBar hunger={hunger} happiness={happiness} cleanliness={cleanliness} />
+      <Character mood={mood} tempAction={tempAction} />
       <ActionButtons onFeed={feed} onPlay={play} onClean={clean} />
+      <StatusBar hunger={hunger} happiness={happiness} cleanliness={cleanliness} />
+      
     </div>
   );
 };
