@@ -66,16 +66,20 @@ const App = () => {
 
   const clean = () => {
     setCleanliness((prev) => Math.min(prev + 10, 100));
+    setTempAction('bathing');
+    setTimeout(() => setTempAction(null), 2000);
   };
 
 
   return (
     <div className="app">
       <h1 className="sixtyfour-convergence">Pixel Oliver</h1>
+
+      <div className="main-container">
       <Character mood={mood} tempAction={tempAction} />
       <ActionButtons onFeed={feed} onPlay={play} onClean={clean} />
       <StatusBar hunger={hunger} happiness={happiness} cleanliness={cleanliness} />
-      
+      </div>
     </div>
   );
 };

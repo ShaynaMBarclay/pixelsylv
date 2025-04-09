@@ -3,7 +3,7 @@
 .sixtyfour-convergence {
   font-family: "Sixtyfour Convergence", sans-serif;
   font-optical-sizing: auto;
-  font-size: 3.5rem;
+  font-size: 5.3rem;
   font-style: normal;
   font-variation-settings:
     "BLED" 0,
@@ -13,6 +13,7 @@
 }
 
 body {
+  min-height: 100vh;
   font-family: Arial, sans-serif;
   text-align: center;
   margin: 0;
@@ -20,8 +21,21 @@ body {
   background-color: #11838f;
 }
 
-.app {
-  padding: 2rem;
+
+
+.main-container {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.action-title {
+  font-family: 'Jersey 20', sans-serif;
+  font-size: 30px !important;
+  color:#db2a0a
 }
 
 .character {
@@ -32,10 +46,8 @@ body {
   margin: 1rem 0;
 }
 
-
-
 .character-image {
-  width: 250px;
+  width: 360px;
   max-width: 600px;
   height: auto;
   object-fit: contain;
@@ -46,14 +58,15 @@ body {
   font-weight: bold;
 }
 .action-buttons {
-  display: flex;
-  justify-content: center; 
-  gap: 2.7rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
 }
 
 .feed-btn {
- width: 2.8rem;
- height: 2.8rem;
+ width: 4rem;
+ height: 4rem;
  background: none;
  border: none;
  cursor: pointer;
@@ -61,14 +74,14 @@ body {
 }
 
 .feed-icon {
-  width: 100%; 
-  height: 100%;
+  width: 6rem; 
+  height: 6rem;
   object-fit: contain;
 }
 
 .hand-btn {
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -76,14 +89,14 @@ body {
 }
 
 .hand-icon {
-  width: 100%; 
-  height: 100%;
+  width: 8rem; 
+  height: 8rem;
   object-fit: contain;
 }
 
 .bathe-btn {
-  width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 5rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -91,7 +104,39 @@ body {
 }
 
 .bathe-icon {
-  width: 100%; 
-  height: 100%;
+  width: 8rem; 
+  height: 7rem;
   object-fit: contain;
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.tooltip-text {
+  font-family: 'Jersey 20', sans-serif;
+  font-size: 17px !important;
+  visibility: hidden;
+  width: max-content;
+  background-color: #cc2900;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 4px 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; 
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }
