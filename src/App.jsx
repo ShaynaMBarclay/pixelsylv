@@ -1,13 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import Character from './components/Character';
-import StatusBar  from './components/StatusBar';
+/*import StatusBar  from './components/StatusBar';*/
 import ActionButtons from './components/ActionButtons';
 import './App.css'
 
 const App = () => {
-  const [hunger, setHunger] = useState(50);
-  const [happiness, setHappiness] = useState(50);
-  const [cleanliness, setCleanliness] = useState(50);
+  const [hunger, setHunger] = useState(() => {
+    const saved = localStorage.getItem('hunger');
+    const value = saved !== null ? JSON.parse(saved) : 50;
+    console.log('Initial Hunger:', value);
+    return value;
+  });
+  
+  const [happiness, setHappiness] = useState(() => {
+    const saved = localStorage.getItem('happiness');
+    const value = saved !== null ? JSON.parse(saved) : 50;
+    console.log('Initial Happiness:', value);
+    return value;
+  });
+  
+  const [cleanliness, setCleanliness] = useState(() => {
+    const saved = localStorage.getItem('cleanliness');
+    const value = saved !== null ? JSON.parse(saved) : 50;
+    console.log('Initial Cleanliness:', value);
+    return value;
+  });
+  
   const [tempAction, setTempAction] = useState(null);
 
   const [mood, setMood] = useState('happy');
@@ -56,6 +74,23 @@ const App = () => {
     return () => clearInterval(cleanlinessInterval);
   }, []);
   
+
+    // Persist hunger
+    useEffect(() => {
+      localStorage.setItem('hunger', JSON.stringify(hunger));
+    }, [hunger]);
+  
+    // Persist happiness
+    useEffect(() => {
+      localStorage.setItem('happiness', JSON.stringify(happiness));
+    }, [happiness]);
+  
+    // Persist cleanliness
+    useEffect(() => {
+      localStorage.setItem('cleanliness', JSON.stringify(cleanliness));
+    }, [cleanliness]);
+
+    
   const feed = () => {
     setHunger((prev) => Math.min(prev + 20, 100));
     setTempAction('eating');
