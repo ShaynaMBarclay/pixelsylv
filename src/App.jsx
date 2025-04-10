@@ -82,7 +82,7 @@ const App = () => {
       <div className="main-container">
       <Character mood={mood} tempAction={tempAction} />
       <ActionButtons onFeed={feed} onPlay={play} onClean={clean} />
-      <StatusBar hunger={hunger} happiness={happiness} cleanliness={cleanliness} />
+      {/*<StatusBar hunger={hunger} happiness={happiness} cleanliness={cleanliness} />*/}
       </div>
     </div>
   );
