@@ -30,12 +30,20 @@ const App = () => {
 
   const [mood, setMood] = useState('happy');
 
+  const angrySound = new Audio('/angry.mp3');
+  const eatingSound = new Audio('/eating.wav');
+  const bathSound = new Audio('/bath.mp3');
+  const playingSound = new Audio('/playing.mp3');
+  const elatedSound = new Audio('/elated.mp3');
+
   useEffect(() => {
     const determineMood = () => {
   if (hunger === 100 && happiness === 100 && cleanliness === 100) {
     setMood('elated');
+    elatedSound.play();
   } else if (hunger === 0 && happiness === 0 && cleanliness === 0) {
     setMood('angry');
+    angrySound.play();
   } else if (happiness < 40) {
     setMood('tired');
   } else if (cleanliness < 50) {
@@ -93,18 +101,21 @@ const App = () => {
     
   const feed = () => {
     setHunger((prev) => Math.min(prev + 20, 100));
+    eatingSound.play();
     setTempAction('eating');
     setTimeout(() => setTempAction(null), 2000);
   };
 
   const play = () => {
     setHappiness((prev) => Math.min(prev + 20, 100));
+    playingSound.play();
     setTempAction('playful');
     setTimeout(() => setTempAction(null), 2000);
   };
 
   const clean = () => {
     setCleanliness((prev) => Math.min(prev + 10, 100));
+    bathSound.play();
     setTempAction('bathing');
     setTimeout(() => setTempAction(null), 2000);
   };
