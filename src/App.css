@@ -138,6 +138,29 @@ body {
   opacity: 1;
 }
 
+.note-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.note-icon {
+  width: 32px;
+  height: 32px;
+  transition: filter 0.3s ease, transform 0.2s ease;
+  filter: grayscale(100%) opacity(0.6);
+}
+
+.note-button:hover .note-icon {
+  transform: scale(1.1);
+}
+
+.note-button.playing .note-icon {
+  filter: none; 
+}
+
 /* small devices */
 @media (max-width: 600px) {
   .sixtyfour-convergence {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Character from './components/Character';
 /*import StatusBar  from './components/StatusBar';*/
 import ActionButtons from './components/ActionButtons';
+import MusicToggle from './components/MusicToggle';
 import './App.css'
 
 const App = () => {
@@ -124,7 +125,7 @@ const App = () => {
   return (
     <div className="app">
       <h1 className="sixtyfour-convergence">Pixel Oliver</h1>
-
+      <MusicToggle />
       <div className="main-container">
       <Character mood={mood} tempAction={tempAction} />
       <ActionButtons onFeed={feed} onPlay={play} onClean={clean} />
