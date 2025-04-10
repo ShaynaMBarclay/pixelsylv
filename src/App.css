@@ -13,8 +13,7 @@
 }
 
 body {
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
+  min-height: 90vh;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -22,14 +21,11 @@ body {
 }
 
 
-
 .main-container {
-
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
-  margin-top: 2rem;
+  gap: 8rem;
 }
 
 .action-title {
@@ -44,11 +40,7 @@ body {
 }
 
 .character {
-  margin: 2rem 0;
-}
-
-.status-bar {
-  margin: 1rem 0;
+  margin: 2.6rem 0;
 }
 
 .character-image {
@@ -144,4 +136,37 @@ body {
 .tooltip-container:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+
+/* small devices */
+@media (max-width: 600px) {
+  .sixtyfour-convergence {
+    font-size: 4rem; /* Adjust title size */
+  }
+  
+  .main-container {
+    gap: 2rem;
+    flex-direction: column; /* Stack vertically on small screens */
+  }
+
+  .action-title {
+    font-size: 28px; /* Make the action title smaller */
+  }
+
+  .character-image {
+    width: 80%;
+    max-width: 300px; /* Smaller character image */
+  }
+
+  .action-buttons {
+    flex-direction: row;
+    gap: 1.5rem; /* Adjust button spacing */
+  }
+
+  .feed-icon,
+  .hand-icon,
+  .bathe-icon {
+    width: 5rem; /* Adjust icon sizes */
+    height: 7rem;
+  }
 }
