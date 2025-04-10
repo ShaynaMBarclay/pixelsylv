@@ -148,27 +148,61 @@ body {
 
   .main-container {
     gap: 0.5rem;
-    flex-direction: column; /* Stack vertically on small screens */
+    flex-direction: column; 
   }
 
   .action-title {
-    font-size: 2rem; /* Make the action title smaller */
+    font-size: 2rem; 
   }
 
   .character-image {
     width: 80%;
-    max-width: 300px; /* Smaller character image */
+    max-width: 300px; 
   }
 
   .action-buttons {
     flex-direction: row;
-    gap: 1.5rem; /* Adjust button spacing */
+    gap: 1.5rem; 
   }
 
   .feed-icon,
   .hand-icon,
   .bathe-icon {
-    width: 5rem; /* Adjust icon sizes */
+    width: 5rem; 
     height: 7rem;
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .sixtyfour-convergence {
+    font-size: 3.5rem; 
+    color: #cc2900; 
+  }
+
+  .main-container {
+    gap: 1rem; 
+    flex-direction: column; 
+  }
+
+  .action-title {
+    font-size: 2.5rem; 
+  }
+
+  .character-image {
+    width: 70%; 
+    max-width: 350px; 
+  }
+
+  .action-buttons {
+    flex-direction: row; 
+    gap: 2rem; 
+  }
+
+  .feed-icon,
+  .hand-icon,
+  .bathe-icon {
+    width: 6rem; 
+    height: 8rem;
   }
 }
