@@ -14,7 +14,11 @@ const App = () => {
 
   useEffect(() => {
     const determineMood = () => {
-  if (happiness < 40) {
+  if (hunger === 100 && happiness === 100 && cleanliness === 100) {
+    setMood('elated');
+  } else if (hunger === 0 && happiness === 0 && cleanliness === 0) {
+    setMood('angry');
+  } else if (happiness < 40) {
     setMood('tired');
   } else if (cleanliness < 50) {
     setMood('dirty');
@@ -30,24 +34,24 @@ const App = () => {
 
   useEffect(() => {
     const hungerInterval = setInterval(() => {
-      setHunger((prev) => Math.max(prev - 5, 0));
-    }, 25000);
+      setHunger((prev) => Math.max(prev - 6, 0));
+    }, 35000);
 
     return () => clearInterval(hungerInterval);
   }, []);
 
   useEffect(() => {
     const happinessInterval = setInterval(() => {
-      setHappiness((prev) => Math.max(prev - 15, 0));
-    }, 10000);
+      setHappiness((prev) => Math.max(prev - 10, 0));
+    }, 30000);
 
     return () => clearInterval(happinessInterval);
   }, []);
 
   useEffect(() => {
     const cleanlinessInterval = setInterval(() => {
-      setCleanliness((prev) => Math.max(prev - 10, 0));
-    }, 20000);
+      setCleanliness((prev) => Math.max(prev - 13, 0));
+    }, 25000);
 
     return () => clearInterval(cleanlinessInterval);
   }, []);
