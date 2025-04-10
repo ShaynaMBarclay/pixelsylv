@@ -176,7 +176,7 @@ body {
 /* Medium devices (tablets) */
 @media (min-width: 601px) and (max-width: 1024px) {
   .sixtyfour-convergence {
-    font-size: 3.5rem; 
+    font-size: 5rem; 
     color: #cc2900; 
   }
 
@@ -190,7 +190,7 @@ body {
   }
 
   .character-image {
-    width: 70%; 
+    width: 90%; 
     max-width: 350px; 
   }
 
