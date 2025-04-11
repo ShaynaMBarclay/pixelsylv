@@ -7,12 +7,12 @@ const MusicToggle = () => {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    // Initialize the audio only once
+    
     audioRef.current = new Audio('/background.mp3');
     audioRef.current.loop = true;
     audioRef.current.volume = 0.4;
 
-    // Cleanup when component unmounts
+    
     return () => {
       audioRef.current.pause();
     };
